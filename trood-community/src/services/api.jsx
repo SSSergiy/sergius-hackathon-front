@@ -1,5 +1,12 @@
 
-const BASE_URL = 'http://localhost:8080';
+// const BASE_URL = 'http://localhost:8080';
+const hostname = window.location.hostname;
+
+const BASE_URL =
+  hostname === 'localhost' || hostname === '127.0.0.1'
+    ? 'http://localhost:8080'
+    : 'http://65.108.87.81';
+
 
 async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
