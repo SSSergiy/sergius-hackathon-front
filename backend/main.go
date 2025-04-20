@@ -32,7 +32,11 @@ func main() {
 	corsConfig := cors.DefaultConfig()
 
 	// !!! ВАЖНО: Разрешаем запросы ТОЛЬКО от твоего локального фронтенда Vite
-	corsConfig.AllowOrigins = []string{"http://localhost:5173"}
+	// corsConfig.AllowOrigins = []string{"http://localhost:5173"}
+	corsConfig.AllowOrigins = []string{
+    "http://localhost:5173",
+    "http://65.108.87.81:5173",
+	}
 
 	// Оставляем разрешенные методы по умолчанию (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS)
 	// corsConfig.AllowMethods = []string{"GET", "POST", ...}
