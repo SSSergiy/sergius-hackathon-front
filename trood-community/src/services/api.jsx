@@ -5,7 +5,7 @@ const hostname = window.location.hostname;
 const BASE_URL =
   hostname === 'localhost' || hostname === '127.0.0.1'
     ? 'http://localhost:8080'
-    : 'http://65.108.87.81';
+    : 'http://65.108.87.81:8080';
 
 
 async function request(endpoint, options = {}) {
