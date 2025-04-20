@@ -30,7 +30,7 @@
 
 **Инструкции:**
 1.  Клонировать репозиторий: `git clone https://github.com/SSSergiy/sergius-hackathon-front.git`
-2.  `cd <repo-folder>`
+2.  `cd sergius-hackathon-front`
 3.  Запустить: `docker-compose up --build -d`
 4.  Открыть приложение:
     *   Фронтенд: `http://localhost:5173`
