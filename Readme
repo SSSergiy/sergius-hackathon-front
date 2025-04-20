@@ -1,0 +1,78 @@
+# Trood Community Hackathon Project
+
+Платформа для управления IT-проектами и связанными с ними вакансиями, разработанная в рамках хакатона Trood Community.
+
+## Описание
+
+Веб-приложение, позволяющее пользователям создавать проекты, описывать их требования (опыт, дедлайн), добавлять открытые вакансии к этим проектам и управлять ими. Приложение состоит из React SPA (Vite + JavaScript) для фронтенда и API на Go (Gin + SQLite) для бэкенда.
+
+**Важное примечание:** В ходе разработки бэкенд был существенно доработан для корректной работы с базой данных SQLite и исправления изначальных проблем с хранением данных и реализацией API.
+
+## Стек технологий
+
+*   **Фронтенд:** React, Vite, JavaScript, CSS Modules, React Router, Vitest, React Testing Library
+*   **Бэкенд:** Go, Gin Gonic, SQLite, Sqlx, Gin-Swagger, Go Modules
+*   **Контейнеризация:** Docker, Docker Compose
+*   **API Документация:** Swagger/OpenAPI
+
+## Функционал
+
+*   Просмотр списка проектов (активные/завершенные).
+*   Создание, просмотр, редактирование (с автосохранением), удаление проектов.
+*   Создание, просмотр, редактирование (с автосохранением), удаление вакансий для конкретного проекта.
+
+## Запуск и установка
+
+### Запуск через Docker Compose (Рекомендуемый)
+
+**Требования:**
+*   Docker и Docker Compose
+
+**Инструкции:**
+1.  Клонировать репозиторий: `git clone <your-repo-url>`
+2.  `cd <repo-folder>`
+3.  Запустить: `docker-compose up --build -d`
+4.  Открыть приложение:
+    *   Фронтенд: `http://localhost:5173`
+    *   API/Swagger: `http://localhost:8080`
+5.  Остановка: `docker-compose down` (удалить БД: `docker-compose down -v`)
+6.  Логи: `docker-compose logs -f` (все), `docker-compose logs -f backend`, `docker-compose logs -f frontend`
+
+### Локальный запуск
+
+**Требования:**
+*   Node.js (v18+)
+*   npm или yarn
+*   Go (v1.21+)
+*   Компилятор C (GCC/Clang) для Cgo (драйвер SQLite)
+
+**Инструкции:**
+1.  Клонировать репозиторий: `git clone <your-repo-url>`
+2.  `cd <repo-folder>`
+3.  **Запустить Бэкенд:**
+    *   `cd backend`
+    *   `go mod tidy`
+    *   `go run main.go` (Сервер на `http://localhost:8080`, Swagger на `http://localhost:8080/swagger/index.html`)
+4.  **Запустить Фронтенд (в новом терминале):**
+    *   `cd ../trood-community` (или ваша папка фронтенда)
+    *   `npm install` (или `yarn install`)
+    *   `npm run dev` (или `yarn dev`) (Приложение на `http://localhost:5173`)
+5.  Открыть `http://localhost:5173` в браузере.
+
+
+## Тестирование
+
+Для фронтенд части написаны юнит/интеграционные тесты с использованием Vitest и React Testing Library.
+
+1.  Перейти в папку фронтенда: `cd trood-community`
+2.  Установить зависимости: `npm install`
+3.  Запустить тесты: `npm test` (один раз) или `npm run test:watch` (в режиме наблюдения).
+
+## Задеплоенное приложение
+
+**Ссылка на рабочую версию приложения:**
+
+[**ЗДЕСЬ_БУДЕТ_ВАША_ССЫЛКА_НА_ДЕПЛОЙ**]
+
+
+*Автор: [SERHII NIEKRITOV]*

@@ -1,0 +1,34 @@
+.projectListSection {}
+
+.title {
+  margin-bottom: 25px;
+  font-family: 'Aeroport';
+  font-size: 32px;
+  color: #000000;
+  font-weight: 500;
+
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  a {
+    min-width: 508px;
+  }
+}
+
+.wrapBtnTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {}
+}
+
+
+.createProjectLink {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,11 @@
+/* src/components/App/App.module.css */
+.app {
+  /* No specific styles needed here usually, layout handled within */
+}
+
+.contentWrapper {
+   /* This wrapper isn't strictly needed with fixed positioning */
+   /* If not using fixed positioning, you'd use flex here:
+   display: flex;
+   padding-top: var(--header-height); /* Avoid content going under fixed header */
+}

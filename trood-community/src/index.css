@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: 'Aeroport', sans-serif;
+  background-color: #ffffff;
+  color: #212529;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background-grey-light: #f8f9fa;
+  --background-grey-medium: #e9ecef;
+  --border-grey: #dee2e6;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-white: #ffffff;
+  --card-background: #ffffff;
+  --sidebar-background: #ffffff;
+  --header-height: 120px;
+  --sidebar-width: 274px;
+}

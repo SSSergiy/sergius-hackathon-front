@@ -1,0 +1,280 @@
+basePath: /
+definitions:
+  models.Project:
+    properties:
+      deadline:
+        type: string
+      description:
+        type: string
+      experience:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.Vacancy:
+    properties:
+      country:
+        type: string
+      description:
+        type: string
+      experience:
+        type: string
+      field:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      project_id:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is the API documentation for the Trood Front Hackathon. Welcome
+    to hell.
+  title: Trood Front Hackathon API
+  version: "1.0"
+paths:
+  /projects:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all projects from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Project'
+            type: array
+      summary: Get all projects
+      tags:
+      - Projects
+    post:
+      consumes:
+      - application/json
+      description: Create a new project by providing the project details
+      parameters:
+      - description: Project data
+        in: body
+        name: project
+        required: true
+        schema:
+          $ref: '#/definitions/models.Project'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Project'
+      summary: Create a new project
+      tags:
+      - Projects
+  /projects/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a project by ID
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Project not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Delete an existing project
+      tags:
+      - Projects
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a project from the database by its ID
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Project'
+        "404":
+          description: Project not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get a project by ID
+      tags:
+      - Projects
+    put:
+      consumes:
+      - application/json
+      description: Edit a project by ID
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated project data
+        in: body
+        name: project
+        required: true
+        schema:
+          $ref: '#/definitions/models.Project'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Project'
+        "404":
+          description: Project not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Edit an existing project
+      tags:
+      - Projects
+  /projects/{id}/vacancies:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all vacancies for a given project by project ID
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Vacancy'
+            type: array
+        "404":
+          description: Project not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get all vacancies for a project
+      tags:
+      - Vacancies
+    post:
+      consumes:
+      - application/json
+      description: Create a new vacancy by providing the vacancy details and the project
+        ID
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Vacancy data
+        in: body
+        name: vacancy
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vacancy'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Vacancy'
+        "404":
+          description: Project not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Create a new vacancy for a project
+      tags:
+      - Vacancies
+  /vacancies/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a vacancy by its ID
+      parameters:
+      - description: Vacancy ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Vacancy not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Delete a vacancy by ID
+      tags:
+      - Vacancies
+    put:
+      consumes:
+      - application/json
+      description: Edit a vacancy by ID
+      parameters:
+      - description: Vacancy ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated vacancy data
+        in: body
+        name: vacancy
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vacancy'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vacancy'
+        "404":
+          description: Vacancy not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Edit an existing vacancy
+      tags:
+      - Vacancies
+swagger: "2.0"

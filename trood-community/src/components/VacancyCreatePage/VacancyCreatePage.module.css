@@ -1,0 +1,124 @@
+.vacancyCreateForm {
+	flex-grow: 1;
+	padding-inline-start: 66px;
+	padding-inline-end: 54px;
+	padding-block-start: 56px;
+	padding-block-end: 56px;
+	background-color: var(--background-grey-light);
+	margin-left: var(--sidebar-width);
+	margin-top: var(--header-height);
+	min-height: calc(100vh - var(--header-height));
+	background: #F3F4F6;
+	border-radius: 16px 0px 0px 0px;
+}
+
+.vacancyFormTitle {
+	font-family: 'Aeroport';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	color: #000000;
+	margin-block-end: 32px;
+	margin-block-start: 0px;
+}
+
+.vacancyFormGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+	column-gap: 37px;
+	margin-bottom: 35px;
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	input,
+	select {
+		padding: 20px;
+		min-height: 61px;
+		background: #FFFFFF;
+		border: 2px solid #D3D4D8;
+		border-radius: 8px;
+		font-family: 'Aeroport';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		color: #000000;
+	}
+}
+
+.formGroup:nth-of-type(3){
+  position: relative;
+}
+
+.formGroup:nth-of-type(3)::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: url('../../../public/icons/arrow-down.svg') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+}
+.formGroup:nth-of-type(2){
+  position: relative;
+}
+
+.formGroup:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: url('../../../public/icons/arrow-down.svg') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+
+
+
+.formGroupFull {
+	grid-column: 1 / -1;
+	gap: 10px;
+	display: flex;
+	flex-direction: column;
+
+	textarea {
+		padding: 20px;
+		min-height: 162px;
+		background: #FFFFFF;
+		border: 2px solid #D3D4D8;
+		border-radius: 8px;
+		font-family: 'Aeroport';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		color: #000000;
+	}
+
+}
+
+.wrapBg {
+	background-color: #FFFFFF;
+	padding-block: 55px;
+	padding-inline: 60px;
+	min-height: 100vh;
+	border-start-end-radius: 24px;
+	border-start-start-radius: 24px;
+
+}
+
+.errorMessage {}
+
+.vacancyFormActions {}
+
+.cancelButton {}

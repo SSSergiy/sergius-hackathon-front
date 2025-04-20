@@ -1,0 +1,18 @@
+.button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 186px;
+  min-height: 47px;
+  background: #D1D2D6;
+  border-radius: 24px;
+  font-family: 'Aeroport';
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+}
+
+.button:hover {
+  background-color: #d3d9df;
+}

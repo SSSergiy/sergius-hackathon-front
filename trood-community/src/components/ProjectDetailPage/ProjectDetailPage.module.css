@@ -1,0 +1,188 @@
+.mainContent {
+	flex-grow: 1;
+	padding-inline-start: 66px;
+	padding-inline-end: 54px;
+	padding-block-start: 56px;
+	background-color: var(--background-grey-light);
+	margin-left: var(--sidebar-width);
+	margin-top: var(--header-height);
+	min-height: calc(100vh - var(--header-height));
+	background: #F3F4F6;
+	border-radius: 16px 0px 0px 0px;
+
+
+	form {
+		background-color: #FFFFFF;
+		padding-block: 55px;
+		padding-inline: 60px;
+		min-height: 100vh;
+		border-start-end-radius: 24px;
+		border-start-start-radius: 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		gap: 24px;
+	}
+
+	form>* button {
+		max-width: 170px;
+	}
+}
+
+.sectionTitle {
+	font-weight: 500;
+	font-size: 32px;
+	color: #000000;
+}
+
+.title {
+	margin-bottom: 25px;
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+
+}
+
+.activeProjectsHeader {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+.formContainer {
+	max-width: 700px;
+	margin: 0 auto;
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	font-family: sans-serif;
+}
+
+.formGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.formFullwidth {
+	grid-column: 1 / -1;
+}
+
+.formLabel {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-family: 'Aeroport';
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+}
+
+.formInput {
+	width: 100%;
+	padding-block: 10px;
+	padding-inline: 23px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 20px;
+	min-height: 61px;
+}
+
+
+.formInput::placeholder,
+textarea::placeholder {
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+}
+
+.selectWrap {
+	display: flex;
+	gap: 24px;
+}
+
+.selectWrap>* {
+	flex: 1;
+	min-width: 0;
+}
+
+.editFormContainer {
+	background-color: #FFFFFF;
+	padding-block: 55px;
+	padding-inline: 60px;
+	min-height: 100vh;
+	border-start-end-radius: 24px;
+	border-start-start-radius: 24px;
+	display: flex;
+	gap: 24px;
+	flex-direction: column;
+	flex: 1;
+}
+
+.editFormContainer>button {
+	max-width: 170px;
+}
+
+.vacanciesList {
+	margin: 0;
+	padding: 0;
+}
+
+.selectWrapper {
+	position: relative;
+}
+
+.selectWrapper::after {
+	content: "";
+	position: absolute;
+	top: 65%;
+	right: 15px;
+	transform: translateY(-50%);
+	width: 10px;
+	height: 10px;
+	background: url('../../../public/icons/arrow-down.svg') no-repeat center;
+	background-size: contain;
+	pointer-events: none;
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding-right: 30px;
+	border: 1px solid #ccc;
+}
+
+.formTextarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 20px;
+	height: 100px;
+	resize: none;
+	min-height: 162px;
+}
+
+.title {
+	margin-bottom: 25px;
+	font-family: 'Aeroport';
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+}
+
+
+.wrapBtnTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	button {}
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	opacity: 0;
+	cursor: pointer;
+}

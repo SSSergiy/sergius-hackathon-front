@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: trood-hack-backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - db_data:/app/data # Убедись, что /app/data - правильный путь внутри контейнера
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./trood-community # Указываем контекст сборки
+      args:
+        # Передаем переменную окружения как аргумент сборки
+        VITE_API_BASE_URL: http://backend:8080
+    container_name: trood-hack-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  db_data:
+    driver: local

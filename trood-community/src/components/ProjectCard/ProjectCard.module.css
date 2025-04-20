@@ -1,0 +1,133 @@
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 181px;
+  box-sizing: border-box;
+  max-width: 508px;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-family: 'Aeroport';
+  font-weight: 500;
+  font-size: 24px;
+  color: #000000;
+  max-width: 382px;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.taskItem {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.taskItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  bottom: -1px;
+  width: 4px;
+  background-color: var(--background-grey-medium);
+  border-radius: 1px;
+  border-radius: 25%;
+}
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+
+  span {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 400;
+    color: #9D9D9D;
+
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.userIcon {
+  font-size: 1.1rem;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--text-primary);
+}
+
+.bellContainer {
+  position: relative;
+}
+
+.notificationDot {
+  position: absolute;
+  top: 10px;
+  right: -7px;
+  width: 9px;
+  height: 9px;
+  background-color: black;
+  border-radius: 50%;
+
+}
+
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.placeholder {
+  min-width: 50px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userPlaceholder {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
