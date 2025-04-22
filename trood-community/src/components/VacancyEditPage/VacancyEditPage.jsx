@@ -70,7 +70,7 @@ const VacancyEditPage = () => {
 
         const deadlineToDisplay = (deadlineFromState ?? data?.deadline ?? '').replace(/-/g, '.');
         console.log(`[VacancyEditPage fetchVacancy] Setting display deadline to:`, deadlineToDisplay);
-        setDisplayDeadlineState(deadlineToDisplay || ''); // Устанавливаем состояние дедлайна
+        setDisplayDeadlineState(deadlineToDisplay || ''); 
 
 
       } catch (err) {
