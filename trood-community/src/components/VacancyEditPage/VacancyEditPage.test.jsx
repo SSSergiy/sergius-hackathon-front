@@ -62,7 +62,6 @@ describe('VacancyEditPage Component', () => {
 
   });
 
-  // В файле VacancyEditPage.test.jsx
 
 it('should display error message if fetching data fails', async () => {
   const errorMsg = 'Failed to fetch';
@@ -70,21 +69,14 @@ it('should display error message if fetching data fails', async () => {
 
   renderWithRouter(<VacancyEditPage />, { route, initialEntries, state: locationState });
 
-  // Ищем сообщение об ошибке (это правильно)
   const errorElement = await screen.findByRole('alert');
   expect(errorElement).toBeInTheDocument();
   expect(errorElement).toHaveTextContent(`Error: ${errorMsg}`);
 
-  // --- Проверяем ОТСУТСТВИЕ полей формы ---
-  // Используем queryBy..., чтобы не было ошибки, если элемент не найден
   expect(screen.queryByRole('combobox', { name: /Field/i })).not.toBeInTheDocument();
   expect(screen.queryByRole('textbox', { name: /Experience/i })).not.toBeInTheDocument();
   expect(screen.queryByRole('textbox', { name: /Description/i })).not.toBeInTheDocument();
-  // Добавь сюда проверки отсутствия для других полей, если они есть в твоей форме
-  // expect(screen.queryByRole('textbox', { name: /Vacancy Name/i })).not.toBeInTheDocument();
-  // expect(screen.queryByRole('textbox', { name: /Country/i })).not.toBeInTheDocument();
 
-  // Проверяем, что API был вызван
   expect(getVacancyById).toHaveBeenCalledTimes(1);
 });
 

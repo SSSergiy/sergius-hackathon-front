@@ -1,33 +1,26 @@
 // src/components/VacancyCreatePage/VacancyCreatePage.test.jsx
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react'; // Импортируем React
-import { MemoryRouter, Route, Routes } from 'react-router-dom'; // useNavigate импортировать НЕ нужно
+import React from 'react';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createVacancy } from '../../services/api';
 import VacancyCreatePage from './VacancyCreatePage';
-// import Button from '../Button/Button'; // Раскомментируй, если используешь не стандартный button
 
-// --- Мокируем API ---
 vi.mock('../../services/api', () => ({
   createVacancy: vi.fn(),
 }));
 
-// --- Мокируем useNavigate на верхнем уровне ---
-// Создаем мок-функцию navigate, которую будем использовать в тестах
 const mockNavigate = vi.fn();
 vi.mock('react-router-dom', async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,
-    useNavigate: () => mockNavigate, // Фабрика мока теперь возвращает наш mockNavigate
-    // useParams будет работать из реального модуля, т.к. мы используем MemoryRouter
+    useNavigate: () => mockNavigate, 
   };
 });
-// --- Конец мокирования ---
 
 
-// Функция-обертка для рендеринга с роутером (теперь не нужно передавать mockNavigate)
 const renderWithRouter = (ui, { route = '/', initialEntries = ['/'] } = {}) => {
   return render(
     <MemoryRouter initialEntries={initialEntries}>
@@ -41,8 +34,8 @@ const renderWithRouter = (ui, { route = '/', initialEntries = ['/'] } = {}) => {
 
 describe('VacancyCreatePage Component', () => {
   const projectId = 'project-42';
-  const route = `/projects/:projectId/vacancies/new`; // Маршрут с параметром
-  const initialEntries = [`/projects/${projectId}/vacancies/new`]; // Начальный URL
+  const route = `/projects/:projectId/vacancies/new`; 
+  const initialEntries = [`/projects/${projectId}/vacancies/new`]; 
 
   const testData = {
     name: 'New Test Vacancy',
@@ -55,8 +48,8 @@ describe('VacancyCreatePage Component', () => {
   const mockApiResponse = { id: 101, project_id: 42, ...testData };
 
   beforeEach(() => {
-    vi.clearAllMocks(); // Сбрасываем ВСЕ моки, включая mockNavigate
-    createVacancy.mockResolvedValue(mockApiResponse); // Настраиваем API мок
+    vi.clearAllMocks(); 
+    createVacancy.mockResolvedValue(mockApiResponse); 
   });
 
   it('should render the form correctly', () => {
@@ -98,7 +91,6 @@ describe('VacancyCreatePage Component', () => {
     const user = userEvent.setup();
     renderWithRouter(<VacancyCreatePage />, { route, initialEntries });
 
-    // Заполняем форму
     await user.type(screen.getByLabelText(/Name/i), testData.name);
     await user.selectOptions(screen.getByLabelText(/Field/i), testData.field);
     await user.type(screen.getByLabelText(/Experience/i), testData.experience);
@@ -135,11 +127,6 @@ describe('VacancyCreatePage Component', () => {
       const submitButton = screen.getByRole('button', { name: /Create vacancy/i });
       await user.click(submitButton);
 
-      // Ждем появления сообщения об ошибке (нужно убедиться, что компонент рендерит {error})
-      // В твоем компоненте VacancyCreatePage нет явного рендеринга {error} при сабмите,
-      // но есть setError. Давай проверим, что кнопка разблокировалась, а навигации не было.
-      // Если хочешь видеть текст ошибки, добавь <p>{error}</p> в JSX компонента.
-      // expect(await screen.findByText(errorMsg)).toBeInTheDocument(); // Закомментировано, пока нет рендера ошибки
 
       expect(mockNavigate).not.toHaveBeenCalled();
 
